@@ -1,4 +1,4 @@
-#include "src/lsclient.hpp"
+#include "include/lsclient/lsclient.hpp"
 #include <iostream>
 #include <string>
 

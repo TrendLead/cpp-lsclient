@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.6)
 
 project(lsclient)
 
+include(GNUInstallDirs)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
+
 SET (CMAKE_CXX_FLAGS       "-g -O3 -std=c++11 -fPIC")
 SET (CMAKE_LINKER_FLAGS    "-rdynamic")
 
@@ -25,16 +28,13 @@ target_link_libraries(
   lsclient
   curl
 )
+target_include_directories(lsclient PUBLIC include)
 
 target_link_libraries(
   sample
   lsclient
 )
 
-install (TARGETS lsclient DESTINATION lib)
-install (FILES "src/assoc.hpp" DESTINATION include/lsclient/)
-install (FILES "src/utils.hpp" DESTINATION include/lsclient/)
-install (FILES "src/lsclient.hpp" DESTINATION include/lsclient/)
-install (FILES "src/lssubscription.hpp" DESTINATION include/lsclient/)
-install (FILES "src/lstable.hpp" DESTINATION include/lsclient/)
-
+install(TARGETS lsclient
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lsclient)

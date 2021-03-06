@@ -27,8 +27,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 THE USE OF THIS SOFTWARE,EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "lsclient.hpp"
-#include "http.hpp"
+#include "lsclient/lsclient.hpp"
+#include "lsclient/http.hpp"
 
 LSClient::LSClient(std::string url, 
     		       std::string username, 

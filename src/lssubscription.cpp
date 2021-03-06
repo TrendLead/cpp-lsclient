@@ -1,4 +1,4 @@
-#include "lssubscription.hpp"
+#include "lsclient/lssubscription.hpp"
 
 LSSubscription::LSSubscription(std::string item_t, 
 	                           std::vector<std::string> obj_ids, 

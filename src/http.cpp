@@ -1,4 +1,4 @@
-#include "http.hpp"
+#include "lsclient/http.hpp"
 
 size_t curl_writehandle(void *ptr,
 	                    size_t size,
