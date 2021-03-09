@@ -28,6 +28,7 @@ THE USE OF THIS SOFTWARE,EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include <vector>
+#include <functional>
 #include <string>
 #include <thread>
 #include "lssubscription.hpp"
@@ -132,7 +133,7 @@ class LSClient {
     void setControlEndpoint(std::string);
     
   private:
-    
+
   	std::string ls_endpoint;
     std::string ls_control_endpoint;
   	std::string ls_username;

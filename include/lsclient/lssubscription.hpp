@@ -29,6 +29,7 @@ THE USE OF THIS SOFTWARE,EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <string>
 #include <vector>
+#include <functional>
 #include "lstable.hpp"
 
 class LSSubscription {
@@ -38,7 +39,18 @@ class LSSubscription {
   	std::string getItemType();
   	std::vector<std::string> getObjectIds();
   	std::vector<std::string> getFields();
+	std::function<void(size_t, std::vector<std::string>, std::vector<std::string>)> callback = [&](size_t id,
+	 std::vector<std::string> values,
+	 std::vector<std::string> valueMap
+	 ){
+	 for(size_t i = 0; i < fields.size(); ++i){
+		 std::cout<<fields[i] << ": " <<values[i+1]<< " ";
+	 }
+	 std::cout<<std::endl;
+	 
+	 };
   	LSTable* table_ref;
+
   protected:
   	std::string item_type;
   	std::vector<std::string> object_ids;
