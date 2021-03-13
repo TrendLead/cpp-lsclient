@@ -237,7 +237,8 @@ size_t LSClient::streamCallbackWrapper(void* ptr, size_t size, size_t nmemb, voi
               std::vector<std::string> values_map = split(values[0],',');
 
               int tnum = atoi(values_map[0].c_str());
-              lsc->getSubscriptions()->at(tnum)->callback(tnum, values, values_map);
+              lsc->getSubscriptions()->
+              at(tnum)->callback(std::stof(values[1]), std::stof(values[2]));
               int indices_num = atoi(values_map[1].c_str()) - 1;
 
               values.erase(values.begin());

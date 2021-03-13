@@ -2,7 +2,10 @@
 
 LSSubscription::LSSubscription(std::string item_t, 
 	                           std::vector<std::string> obj_ids, 
-	                           std::vector<std::string> flist) {
+	                           std::vector<std::string> flist,
+                              const std::function<void(float,float)>& callback
+                             ): callback(callback)
+                              {
   item_type = item_t;
   object_ids = obj_ids;
   fields= flist;

@@ -1,6 +1,7 @@
 #include "include/lsclient/lsclient.hpp"
 #include <iostream>
 #include <string>
+#include <functional>
 
 void usage(char* prgname) {
 
@@ -25,7 +26,10 @@ int main(int argc, char** argv) {
   lsc->addSubscription(new LSSubscription("MARKET", 
                                           {"MARKET:IX.D.CAC.IMF.IP", 
                                            "MARKET:IX.D.DAX.IMF.IP"},
-                                          {"BID","OFFER"}));
+                                          {"BID","OFFER"},
+                                           std::function<void(float,float)>([](float bid, float ask){
+                                             std::cout<<"TIMESTAMP " << time(nullptr)<< " BID " << bid << " OFFER " << ask << std::endl;
+                                           })));
 
   cout << "[LSCLIENT] Connecting to LightStreamer.." ;
 
